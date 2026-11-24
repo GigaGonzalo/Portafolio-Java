@@ -4,7 +4,7 @@ Fundamentos de programacion JAVA
 
 Temario de los fundamentos para aprender el lenguaje JAVA
 
-Estara dividido en fases y cada fase implementara dos proyectos a partir de la segunda fase.
+Estara dividido en fases y cada fase implementará dos proyectos a partir de la segunda fase.
 
 - El primero implementara lo aprendido exclusivamente en los temas de la fase correspondiente
 
@@ -29,7 +29,7 @@ Estara dividido en fases y cada fase implementara dos proyectos a partir de la s
 - Condicionales (_if-else, switch tradicional y expresiones switch modernas_)
 - Bucles (_for, for-each, while, do-while_) y controles de salto (_break, continue_)
 
-### Entrda/Salida y Manipulación básica
+### Entrada/Salida y Manipulación básica
 
 - Uso de _Scanner_ para leer datos de consola
 - Formateo de salida y manejo fundamental de cadenas (_string, inmutabilidad, StringBuilder_)
@@ -164,9 +164,3 @@ Estara dividido en fases y cada fase implementara dos proyectos a partir de la s
 - Conexión desde Java a base de datos relacional (_PostgreSQL o MySQL/SQLite_)
 - Consultas parametrizadas ( _PreparatedStatement_ )
 - Patrón _DAO/Repository_
-
-
-
-
-
-## Instalación
