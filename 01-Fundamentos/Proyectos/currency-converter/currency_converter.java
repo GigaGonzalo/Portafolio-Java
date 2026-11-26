@@ -31,18 +31,37 @@ public class currency_converter{
                 case 4 :
                 case 5 :
                 case 6 :
+                    System.out.println(name_currency[opc-1] + " selected, enter the amount: ");
+                    double amnt = sc.nextDouble();
 
+                    System.out.println(name_currency[opc-1] + " = " + amnt);
+
+                    for(int i= 0; i < value_currency.length; i++){
+                        if(i == opc-1){
+                            continue;
+                        }
+                        else{
+                            double mt = ((amnt/value_currency[opc-1])*value_currency[i]);
+                            formatAmount(mt, loc[i], i);
+                        }
+                    }
                     break;
                 case 7 :
-
+                    System.out.print("Exit......");
                     break;
                 default :
-
+                    System.out.println("Incorrect Option!!");
                     break;
             };
         }
         while(opc != 0);
         sc.close();
+    };
+
+    public static void formatAmount(double amn, Locale lct, int pos){
+        NumberFormat frmt = NumberFormat.getCurrencyInstance(lct);
+
+        System.out.println(frmt.format(amn) + " " + name_currency[pos]);
     };
 
 };
