@@ -1,7 +1,6 @@
 import java.text.NumberFormat;
 import java.util.Scanner;
 import java.util.Locale;
-import java.util.Currency;
 
 public class currency_converter{
 
