@@ -33,6 +33,7 @@ public class currency_converter{
                 case 6 :
                     System.out.println(name_currency[opc-1] + " selected, enter the amount: ");
                     double amnt = sc.nextDouble();
+                    sc.nextLine();
 
                     System.out.println(name_currency[opc-1] + " = " + amnt);
 
@@ -45,12 +46,13 @@ public class currency_converter{
                             formatAmount(mt, loc[i], i);
                         }
                     }
+                    System.out.println("Press Enter to back menu");
+                    sc.nextLine();
                     break;
                 case 7 :
-                    System.out.print("Exit......");
                     break;
                 default :
-                    System.out.println("Incorrect Option!!");
+                    System.out.println("¡¡Incorrect Option!!");
                     break;
             };
         }
