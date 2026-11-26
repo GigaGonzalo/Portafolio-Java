@@ -5,9 +5,9 @@ import java.util.Currency;
 
 public class currency_converter{
 
-    static String[] name_currency = {"Dollar (USD)", "Canadian Dollar (CAD)", "Euro (EUR)", "Yen (JPY)", "Yuan (CNY)", "Pesos (MXN)"};
+    static String[] name_currency = {"Dollar (USD)", "Canadian Dollar (CAD)", "Euro (EUR)", "Yen (JPY)", "Yuan (CNY)", "Mexican Peso (MXN)"};
     static Locale[] loc = {Locale.US,Locale.CANADA, new Locale("es","ES"), Locale.JAPAN, Locale.CHINA, new Locale("es", "MX")};
-    /*Value currency from dollar value*/
+    /*Exchange rates realtive to USD*/
     static double[] value_currency = {1, 1.42f, 0.91f, 159.13f, 6.66f, 19.63};
     static int opc;
 
@@ -15,7 +15,7 @@ public class currency_converter{
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("Currency Converter");
-            System.out.println("Select currency for conversion:");
+            System.out.println("Select a currency to convert from:");
             for (int i = 0; i < name_currency.length; i++) {
                 System.out.println((i + 1) + ". " + name_currency[i]);
             };
@@ -31,7 +31,7 @@ public class currency_converter{
                 case 4 :
                 case 5 :
                 case 6 :
-                    System.out.println(name_currency[opc-1] + " selected, enter the amount: ");
+                    System.out.println("You selected " + name_currency[opc-1] + ". enter the amount: ");
                     double amnt = sc.nextDouble();
                     sc.nextLine();
 
@@ -46,13 +46,13 @@ public class currency_converter{
                             formatAmount(mt, loc[i], i);
                         }
                     }
-                    System.out.println("Press Enter to back menu");
+                    System.out.println("Press Enter to return to the menu");
                     sc.nextLine();
                     break;
-                case 7 :
+                case 0 :
                     break;
                 default :
-                    System.out.println("¡¡Incorrect Option!!");
+                    System.out.println("Incorrect Option!");
                     break;
             };
         }
