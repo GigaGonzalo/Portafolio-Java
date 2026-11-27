@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class TaxCalculator {
 
+    // Structure of type_transaction = Bronze/Silver/Gold/Black {discount, shipping charge, loyalty points}
     public static double[][] type_transaction = {{0, 0.1, 0}, {0.05, 0.1, 0.03}, {0.1, 0, 0.04}, {0.12, 0, 0.06}};
-    public static Scanner scn = new Scanner(System.in);
+    private static Scanner scn = new Scanner(System.in);
     public static void main(String[] args){
 
         int opc;
@@ -14,7 +15,7 @@ public class TaxCalculator {
             System.out.println("------------------------");
             System.out.println("1. Process a transaction: ");
             System.out.println("0. Exit");
-            System.out.println("Choose a option:");
+            System.out.println("Choose an option:");
 
             opc = scn.nextInt();
             scn.nextLine();
@@ -23,16 +24,14 @@ public class TaxCalculator {
                 case 1:
                     System.out.print("Amount = ");
                     double mnt = scn.nextDouble();
+                    scn.nextLine();
 
                     calculeTax(mnt);
                     break;
-                case 2:
-                    System.out.println("Exit..............");
+                case 0:
+                    System.out.println("Exiting..............");
                     scn.close();
                     break;
-                case 0:
-                    break;
-
                 default:
                     System.out.println("Invalid Option!");
                     break;
@@ -43,7 +42,7 @@ public class TaxCalculator {
 
     public static void calculeTax(double amnt){
 
-        int t_transaction = typeTransction(amnt);
+        int t_transaction = typeTransaction(amnt);
         double discount, ship_charge, points, total_amount;
 
         System.out.println(t_transaction);
@@ -54,7 +53,6 @@ public class TaxCalculator {
             case 2:
             case 3:
             case 4:
-                System.out.println((type_transaction[t_transaction-1][1]));
                 ship_charge = amnt * (type_transaction[t_transaction-1][1]);
                 total_amount = amnt + ship_charge;
                 discount = amnt * (type_transaction[t_transaction-1][0]);
@@ -62,11 +60,11 @@ public class TaxCalculator {
                 points = amnt * (type_transaction[t_transaction-1][2]);
                 System.out.println("Total = " + total_amount);
                 System.out.println("------------------------");
-                System.out.println("Discount " + (type_transaction[t_transaction-1][0]*100) +  "% = " + discount);
-                System.out.println("Shipping charge = " + (type_transaction[t_transaction-1][1]*100) +"% = " +ship_charge);
-                System.out.println("Loyalty Points " + (type_transaction[t_transaction-1][2]*100) + "% = " + points);
+                System.out.println("Discount " + ((int)type_transaction[t_transaction-1][0]*100) +  "% = " + discount);
+                System.out.println("Shipping charge = " + ((int)type_transaction[t_transaction-1][1]*100) +"% = " +ship_charge);
+                System.out.println("Loyalty Points " + ((int)type_transaction[t_transaction-1][2]*100) + "% = " + points);
 
-                System.out.println("Press Enter to go to main menu");
+                System.out.println("Press Enter to return to main menu");
                 scn.nextLine();
                 break;
 
@@ -79,7 +77,7 @@ public class TaxCalculator {
 
     }
 
-    public static int typeTransction(double amount){
+    public static int typeTransaction(double amount){
         int type;
         if(amount <= 999){
             type = 1;
@@ -87,8 +85,10 @@ public class TaxCalculator {
             type = 2;
         } else if (amount <= 2499) {
             type = 3;
-        } else{
+        } else if(amount >= 2500){
             type = 4;
+        }else{
+            type = 5;
         }
         return type;
     }
