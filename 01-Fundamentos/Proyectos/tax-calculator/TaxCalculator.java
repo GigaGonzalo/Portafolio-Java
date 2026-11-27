@@ -27,6 +27,18 @@ public class TaxCalculator {
         while(opc != 0);
     }
 
-
+    public static int typeTransction(double amount){
+        int type;
+        if(amount <= 999){
+            type = 0;
+        } else if (amount <= 1999) {
+            type = 1;
+        } else if (amount <= 2499) {
+            type = 2;
+        } else{
+            type = 3;
+        }
+        return type;
+    }
 
 }
