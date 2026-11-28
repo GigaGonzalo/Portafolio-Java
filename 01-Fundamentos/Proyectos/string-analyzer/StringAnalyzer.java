@@ -1,12 +1,9 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-
-
 public class StringAnalyzer{
 
     static String text;
-    static boolean is_palindrome;
 
     public static void main(String[] args){
 
@@ -19,6 +16,7 @@ public class StringAnalyzer{
             System.out.println("Welcome to String Analyzer");
             System.out.println("--------------------------");
             System.out.println("1. Statistics of a text");
+            System.out.println("2. Check Palindrome");
             System.out.println("0. Exit");
             System.out.println("Choose an option");
 
@@ -35,7 +33,17 @@ public class StringAnalyzer{
                     count_vowel(char_text);
                     count_consonant(char_text);
                     count_space(char_text);
-
+                    System.out.print("Press Enter to return to the main menu");
+                    scan.nextLine();
+                    break;
+                case 2:
+                    System.out.println("Enter the word");
+                    text = scan.nextLine();
+                    char_text = convert_char(text);
+                    System.out.println("Your word analized is " + text);
+                    isPalindrome(char_text);
+                    System.out.print("Press Enter to return to the main menu");
+                    scan.nextLine();
                     break;
 
                 case 0:
@@ -45,8 +53,6 @@ public class StringAnalyzer{
                     System.out.println("Invalid option!");
             }
 
-
-
         }
         while(opc != 0);
     }
@@ -55,7 +61,6 @@ public class StringAnalyzer{
         char [] char_t;
         text = text.toLowerCase();
         char_t = text.toCharArray();
-        System.out.println(Arrays.toString(char_t));
 
         return char_t;
 
@@ -111,6 +116,50 @@ public class StringAnalyzer{
         }
 
         System.out.println("Spaces counted = " + n_space);
+    }
+
+    public static void isPalindrome(char[] c_text){
+        int count = 0;
+        if((c_text.length % 2) == 0){
+
+            for(int i = 0 ; i < (c_text.length/2) ; i++ ){
+
+                if(c_text[i] == c_text[(c_text.length-1)-i]){
+                    
+                    count++;
+
+                }
+
+            }
+            if(count == c_text.length/2){
+
+                System.out.println("Yea! It is a PALINDROME");
+
+            }
+            else {
+                System.out.println("It isn't a PALINDROME");
+            }
+        }
+        else{
+            int n = (c_text.length) - 1;
+            for(int i = 0 ; i < (n/2) ; i++ ){
+
+                if(c_text[i] == c_text[(c_text.length-1)-i]){
+
+                    count++;
+
+                }
+
+            }
+            if(count == n/2){
+
+                System.out.println("Yea! It is a PALINDROME");
+
+            }
+            else {
+                System.out.println("It isn't a PALINDROME");
+            }
+        }
     }
 
 
