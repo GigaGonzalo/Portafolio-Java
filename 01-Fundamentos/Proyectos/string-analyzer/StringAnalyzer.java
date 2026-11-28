@@ -33,6 +33,7 @@ public class StringAnalyzer{
                     char_text = convert_char(text);
                     System.out.println("Your text analized is " + text);
                     count_vowel(char_text);
+                    count_consonant(char_text);
 
                     break;
 
@@ -51,6 +52,7 @@ public class StringAnalyzer{
 
     public static char[] convert_char(String text){
         char [] char_t;
+        text = text.toLowerCase();
         char_t = text.toCharArray();
 
         return char_t;
@@ -75,6 +77,22 @@ public class StringAnalyzer{
 
     }
 
+    public static void count_consonant(char[] c_text){
+        char[] _consonant = {'b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'};
+        int n_consonant = 0;
+
+        for(char char_t : c_text){
+            for(char c_vowel : _consonant){
+
+                if (char_t == c_vowel){
+                    n_consonant++;
+                }
+            }
+
+        }
+
+        System.out.println("Consonants counted = " + n_consonant);
+    }
 
 
 }
