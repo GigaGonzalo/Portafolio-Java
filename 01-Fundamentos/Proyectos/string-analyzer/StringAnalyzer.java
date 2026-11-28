@@ -1,17 +1,18 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 
 
 public class StringAnalyzer{
 
-    static char[] char_text;
     static String text;
-    static int n_vowel, n_consonants, n_space, opc;
     static boolean is_palindrome;
 
     public static void main(String[] args){
 
         Scanner scan = new Scanner(System.in);
+        char[] char_text;
+        int opc;
 
         do{
 
@@ -29,9 +30,12 @@ public class StringAnalyzer{
                 case 1:
                     System.out.println("Enter the text to convert");
                     text = scan.nextLine();
-                    scan.nextLine();
+                    char_text = convert_char(text);
                     System.out.println("Your text analized is " + text);
-                    
+                    count_vowel(char_text);
+
+                    break;
+
                 case 0:
                     System.out.print("Exiting...............");
                     break;
@@ -45,13 +49,29 @@ public class StringAnalyzer{
         while(opc != 0);
     }
 
-    public void convert_Tochar(String text){
+    public static char[] convert_char(String text){
+        char [] char_t;
+        char_t = text.toCharArray();
 
-        char_text = text.toCharArray();
+        return char_t;
 
     }
 
-    public void count_vowel(){
+    public static void count_vowel(char[] c_text){
+
+        char[] _vowel = {'a', 'e', 'i', 'o', 'u'};
+        int n_vowel = 0;
+
+        for(char char_t : c_text){
+            for(char c_vowel : _vowel){
+
+                if (char_t == c_vowel){
+                    n_vowel++;
+                }
+            }
+
+        }
+        System.out.println("Vowel counted = " + n_vowel);
 
     }
 
