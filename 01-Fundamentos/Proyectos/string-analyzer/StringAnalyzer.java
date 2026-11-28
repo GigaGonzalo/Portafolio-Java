@@ -34,6 +34,7 @@ public class StringAnalyzer{
                     System.out.println("Your text analized is " + text);
                     count_vowel(char_text);
                     count_consonant(char_text);
+                    count_space(char_text);
 
                     break;
 
@@ -54,6 +55,7 @@ public class StringAnalyzer{
         char [] char_t;
         text = text.toLowerCase();
         char_t = text.toCharArray();
+        System.out.println(Arrays.toString(char_t));
 
         return char_t;
 
@@ -93,6 +95,25 @@ public class StringAnalyzer{
 
         System.out.println("Consonants counted = " + n_consonant);
     }
+
+    public static void count_space(char[] c_text){
+
+        int n_space = 0;
+
+        for(char char_t : c_text){
+
+            if(char_t == ' ') {
+
+                n_space++;
+
+            }
+
+        }
+
+        System.out.println("Spaces counted = " + n_space);
+    }
+
+
 
 
 }
